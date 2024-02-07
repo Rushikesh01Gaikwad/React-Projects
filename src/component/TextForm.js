@@ -26,7 +26,7 @@ export default function TextForm(props) {
     <>
     <div>
       <div className="mb-3">
-        <label htmlFor="exampleFormControlInput1" className="form-label">
+        <label htmlFor="exampleFormControlInput1" className="form-label" style={{color:props.mode==='dark'?'white':'black'}}>
           <h3>{props.title}</h3>
         </label>
         <input
@@ -34,10 +34,11 @@ export default function TextForm(props) {
           className="form-control"
           id="exampleFormControlInput1"
           placeholder="Full Name"
+          style={{backgroundColor:props.mode==='dark'?'#042743':'white', color:props.mode==='dark'?'white':'black'}}
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleFormControlTextarea1" className="form-label">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label" style={{color:props.mode==='dark'?'white':'black'}}>
           <h3>{props.title_2}</h3>
         </label>
         <textarea
@@ -46,6 +47,7 @@ export default function TextForm(props) {
           value={text}
           rows="4"
           onChange={handleOnchange}
+          style={{backgroundColor:props.mode==='dark'?'#042743':'white', color:props.mode==='dark'?'white':'black'}}
         ></textarea>
       </div>
       <button className="btn btn-primary" onClick={handleUpclick}>Convert Uppercase</button>
@@ -53,11 +55,11 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-2" onClick={handleToclear}>Clear text</button>
     </div>
     <div className="container my-3" >
-      <h2>Your Summary is: </h2>
-      <p>Your words are {text.split(" ").length} <br/> Your charactors are: {text.length}</p>
-      <p>{0.008 * text.split(" ").length} minutes for read above passage. </p>
-      <h2>Preview:</h2>
-      <p>{text}</p>
+      <h2 style={{color:props.mode==='dark'?'white':'black'}}>Your Summary is: </h2>
+      <p style={{color:props.mode==='dark'?'white':'black'}}>Your words are {text.split(" ").length} <br/> Your charactors are: {text.length}</p>
+      <p style={{color:props.mode==='dark'?'white':'black'}}>{0.008 * text.split(" ").length} minutes for read above passage. </p>
+      <h2 style={{color:props.mode==='dark'?'white':'black'}}>Preview:</h2>
+      <p style={{color:props.mode==='dark'?'white':'black'}}>{text}</p>
     </div>
     </>
     

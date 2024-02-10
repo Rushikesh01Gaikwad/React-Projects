@@ -20,6 +20,13 @@ export default function TextForm(props) {
       setText(newText.join(" "))
     }
 
+    const CopyText=()=>{
+      let text= document.getElementById("mybox");
+      text.select();
+      navigator.clipboard.writeText(text.value);
+
+    }
+
     const handleOnchange=(event)=>{
         setText(event.target.value)
     }
@@ -60,6 +67,7 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-2" onClick={handleTolo}>Convert Lowecase</button>
       <button className="btn btn-primary mx-2" onClick={handleToclear}>Clear text</button>
       <button className="btn btn-primary mx-2" onClick={removespace}>Remove Extra Space</button>
+      <button className="btn btn-primary mx-2" onClick={CopyText}>Copy Text</button>
     </div>
     <div className="container my-3" >
       <h2 style={{color:props.mode==='dark'?'white':'black'}}>Your Summary is: </h2>

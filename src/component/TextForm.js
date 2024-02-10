@@ -14,17 +14,23 @@ export default function TextForm(props) {
       let newText = '';
       setText(newText)
     }
+
+    const removespace=()=>{
+      let newText = text.split(/[ ]+/);
+      setText(newText.join(" "))
+    }
+
     const handleOnchange=(event)=>{
         setText(event.target.value)
     }
-
+    
     const [text, setText] = useState("Enter you text here");
     //setText = "This is wrong way"
     //setText("This is write way")
 
   return (
     <>
-    <div>
+    <div className='container my-3'>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label" style={{color:props.mode==='dark'?'white':'black'}}>
           <h3>{props.title}</h3>
@@ -53,6 +59,7 @@ export default function TextForm(props) {
       <button className="btn btn-primary" onClick={handleUpclick}>Convert Uppercase</button>
       <button className="btn btn-primary mx-2" onClick={handleTolo}>Convert Lowecase</button>
       <button className="btn btn-primary mx-2" onClick={handleToclear}>Clear text</button>
+      <button className="btn btn-primary mx-2" onClick={removespace}>Remove Extra Space</button>
     </div>
     <div className="container my-3" >
       <h2 style={{color:props.mode==='dark'?'white':'black'}}>Your Summary is: </h2>

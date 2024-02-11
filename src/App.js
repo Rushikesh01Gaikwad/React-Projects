@@ -4,9 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TextForm from './component/TextForm';
 import { useState } from 'react';
 import Abous from './component/Abous';
-// import pageerror from './component/pageerror';
-import Home from './component/Home';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -28,18 +26,13 @@ function App() {
   }
   return (
     <>
+    <BrowserRouter>
     <Navbar mode={mode} toggleMode={ToggleMode}></Navbar>
-    <TextForm title = "Enter your Name: "title_2 ="Enter some Text here: " mode={mode}></TextForm>
-    {/* <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/navbar' element={<Navbar mode={mode} toggleMode={ToggleMode}></Navbar>}></Route>
-        <Route path='/textedit' element={<TextForm title = "Enter your Name: "title_2 ="Enter some Text here: " mode={mode}></TextForm>}></Route>
+      <Routes>  
+        <Route path='/' element={<TextForm title = "Enter your Name: "title_2 ="Enter some Text here: " mode={mode}></TextForm>}></Route>
         <Route path='/about' element={<Abous></Abous>}></Route>
-        <Route path='*' element={pageerror}></Route>
       </Routes>
-    </BrowserRouter> */}
-    
+    </BrowserRouter>
     </>
   );
 }

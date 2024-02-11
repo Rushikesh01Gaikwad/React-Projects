@@ -63,21 +63,19 @@ export default function TextForm(props) {
           style={{backgroundColor:props.mode==='dark'?'#042743':'white', color:props.mode==='dark'?'white':'black'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary my-1" onClick={handleUpclick}>Convert Uppercase</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleTolo}>Convert Lowecase</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={handleToclear}>Clear text</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={removespace}>Remove Extra Space</button>
-      <button className="btn btn-primary mx-2 my-1" onClick={CopyText}>Copy Text</button>
+      <button disabled = {text.length===0} className="btn btn-primary my-1" onClick={handleUpclick}>Convert Uppercase</button>
+      <button disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleToclear}>Clear text</button>
+      <button disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleTolo}>Convert Lowecase</button>
+      <button disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={removespace}>Remove Extra Space</button>
+      <button disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={CopyText}>Copy Text</button>
     </div>
     <div className="container my-3" >
       <h2 style={{color:props.mode==='dark'?'white':'black'}}>Your Summary is: </h2>
-      <p style={{color:props.mode==='dark'?'white':'black'}}>Your words are {text.split(" ").filter((element)=>{return element.length!==0}).length } <br/> Your charactors are: {text.length}</p>
-      <p style={{color:props.mode==='dark'?'white':'black'}}>{0.008 * text.split(" ").length} minutes for read above passage. </p>
+      <p style={{color:props.mode==='dark'?'white':'black'}}>Your words are {text.split(/\s+/).filter((element)=>{return element.length!==0}).length } <br/> Your charactors are: {text.length}</p>
+      <p style={{color:props.mode==='dark'?'white':'black'}}>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes for read above passage. </p>
       <h2 style={{color:props.mode==='dark'?'white':'black'}}>Preview:</h2>
       <p style={{color:props.mode==='dark'?'white':'black'}}>{text}</p>
     </div>
-    </>
-    
-    
+    </> 
   );
 }
